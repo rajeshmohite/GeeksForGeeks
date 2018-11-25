@@ -1,5 +1,7 @@
 package BinaryTree;
 
+import java.util.Stack;
+
 public class _02_DFSTreeTraversal {
 	Node root;
 
@@ -22,9 +24,31 @@ public class _02_DFSTreeTraversal {
 		System.out.println("\nInorder traversal of binary tree is ");
 		tree.printInorder(tree.root);
 
+		System.out.println("\nInorder traversal Without Recursion ");
+		tree.printInorderWithoutRecursion(tree.root);
 		System.out.println("\nPostorder traversal of binary tree is ");
 		tree.printPostorder(tree.root);
 
+	}
+
+	private void printInorderWithoutRecursion(Node root) {
+		if (root == null)
+			return;
+
+		Stack<Node> stack = new Stack<>();
+		Node curr = root;
+
+		while (curr != null || stack.size() > 0) {
+			while (curr != null) {
+				stack.push(curr);
+				curr = curr.left;
+			}
+
+			curr = stack.pop();
+			System.out.print(curr.data + " ");
+
+			curr = curr.right;
+		}
 	}
 
 	private void printPostorder(Node root) {
