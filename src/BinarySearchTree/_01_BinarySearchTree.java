@@ -42,13 +42,13 @@ public class _01_BinarySearchTree {
 		tree.deleteKey(50);
 		System.out.println("Inorder traversal of the modified tree");
 		tree.inorder(tree.root);
-
 	}
-
+	
 	private void insert(int key) {
 		root = insertRec(root, key);
 	}
 
+	/* A recursive function to insert a new key in BST */
 	private Node insertRec(Node root, int key) {
 		if (root == null) {
 			root = new Node(key);
@@ -74,7 +74,7 @@ public class _01_BinarySearchTree {
 		root = deleteRec(root, key);
 	}
 
-	/* A recursive function to insert a new key in BST */
+	/* A recursive function to delete a new key in BST */
 	Node deleteRec(Node root, int key) {
 		/* Base Case: If the tree is empty */
 		if (root == null)
